@@ -3,11 +3,21 @@ import './DesktopNavigation.css'
 import Logotype from '../../../shared/images/logotype.png';
 import { useHistory } from 'react-router-dom';
 import RoutingPath from "../../../routes/RoutingPath"
-import { UserContext } from '../../../shared/global/provider/UserProvider'
+import { UserContext } from '../../../shared/provider/UserProvider'
+import {Profile} from '../../profile/Profile'
 
 export const DesktopNavigation = () => {
     const history = useHistory();
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
+
+    const displayUserIfAuthenticated = () => {
+        return (authenticatedUser) 
+            ? <div className="profile"><Profile /></div>
+            :  <span 
+                    onClick={() => history.push(RoutingPath.signInView)} 
+                    className="signIn">Sign in
+                </span>
+    }
 
     return (
         <div className="desktopNavigationWrapper">
@@ -18,10 +28,8 @@ export const DesktopNavigation = () => {
             <span 
                 onClick={() => history.push(RoutingPath.playersView)} 
                 className="players">Players</span>
-            <span 
-                onClick={() => history.push(RoutingPath.signInView)}
-                className="signIn">Sign in</span>
-            <h3>{authenticatedUser}</h3>
+            
+            {displayUserIfAuthenticated()}
         </div>
     )
 }

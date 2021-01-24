@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom'
-import { UserContext } from '../shared/global/provider/UserProvider'
+import { UserContext } from '../shared/provider/UserProvider'
 import RoutingPath from '../routes/RoutingPath';
 
 export const SignInView = () => {
