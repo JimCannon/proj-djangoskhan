@@ -1,29 +1,35 @@
 .desktopNavigationWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: #b5d5d1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #b5d5d1;
 }
 
 .navigationLogotype {
-    width: 100px;
-    align-self: center;
+  width: 100px;
+  align-self: center;
 }
 
-.players {
-    align-self: center;
+/* .players {
+  align-self: center;
 }
 
 .signIn {
-    justify-content: end;
-    align-self: center;
+  justify-content: end;
+  align-self: center;
 }
 
 .profile {
-    justify-content: end;
-    align-self: center;
+  justify-content: end;
+  align-self: center;
+} */
+
+.desktopNavigationTabs {
+  align-items: center;
 }
 
-.navigationLogotype, .players, .signIn{
-    cursor: pointer;
+.navigationLogotype,
+.players,
+.signIn {
+  cursor: pointer;
 }
