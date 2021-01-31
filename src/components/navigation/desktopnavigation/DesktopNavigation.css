@@ -10,26 +10,15 @@
   align-self: center;
 }
 
-/* .players {
-  align-self: center;
-}
-
-.signIn {
-  justify-content: end;
-  align-self: center;
-}
-
-.profile {
-  justify-content: end;
-  align-self: center;
-} */
-
 .desktopNavigationTabs {
+  display: flex;
   align-items: center;
 }
 
 .navigationLogotype,
 .players,
 .signIn {
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }

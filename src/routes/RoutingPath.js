@@ -3,6 +3,7 @@ const playersView = "/players";
 const signInView = "/signIn";
 const aboutUsView = "/aboutUs";
 const scheduleView = "/schedule";
+const settingsView = "/settings";
 
 // eslint-disable-next-line
 export default {
@@ -11,4 +12,5 @@ export default {
   signInView,
   aboutUsView,
   scheduleView,
+  settingsView,
 };

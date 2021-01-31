@@ -15,11 +15,13 @@ export const ProfileDropDown = () => {
     history.push(RoutingPath.homeView);
   };
 
+  const settings = () => {
+    history.push(RoutingPath.settingsView);
+  };
+
   return (
     <div className="profileDropdown">
-      <span>Alternativ 1</span>
-      <span>Alternativ 2</span>
-      <span>Alternativ 3</span>
+      <span onClick={() => settings()}>Settings</span>
       <span onClick={() => logout()}>Sign Out!</span>
     </div>
   );

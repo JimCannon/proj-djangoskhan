@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./DesktopNavigation.css";
-import Logotype from "../../../shared/images/logotype.png";
+import Logotype from "../../../shared/images/logotype.svg";
 import { useHistory } from "react-router-dom";
 import RoutingPath from "../../../routes/RoutingPath";
 import { UserContext } from "../../../shared/provider/UserProvider";
