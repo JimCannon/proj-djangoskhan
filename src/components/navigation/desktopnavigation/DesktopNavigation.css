@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   background-color: #b5d5d1;
+  align-items: center;
 }
 
 .navigationLogotype {

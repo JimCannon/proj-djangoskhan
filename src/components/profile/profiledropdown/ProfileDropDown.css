@@ -1,12 +1,21 @@
-.profileDropdown span {
-  display: block;
-  cursor: pointer;
-  padding: 20px;
-  color: white;
-}
-
 .profileDropdown {
   display: none;
+  justify-content: space-around;
   position: absolute;
   background-color: black;
 }
+
+.profileDropdown span {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  width: 80%;
+  color: white;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+/* .profileDropdown ul {
+
+} */

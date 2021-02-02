@@ -23,6 +23,11 @@ export const ProfileDropDown = () => {
     <div className="profileDropdown">
       <span onClick={() => settings()}>Settings</span>
       <span onClick={() => logout()}>Sign Out!</span>
+
+      {/* <ul>
+        <li onClick={() => settings()}>Settings</li>
+        <li onClick={() => logout()}>Sign Out!</li>
+      </ul> */}
     </div>
   );
 };
