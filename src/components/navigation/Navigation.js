@@ -4,6 +4,7 @@ import { useWindowDimension } from "../../hooks/useWindowDimension";
 import { DesktopNavigation } from "./desktopnavigation/DesktopNavigation";
 
 export const Navigation = () => {
+  // eslint-disable-next-line
   const { height, width } = useWindowDimension();
 
   const displayNavigationDependingOnDevice = () => {

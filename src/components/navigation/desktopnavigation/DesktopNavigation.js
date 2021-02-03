@@ -9,6 +9,7 @@ import { DesktopNavigationTabs } from "./desktopnavigationtabs/DesktopNavigation
 
 export const DesktopNavigation = () => {
   const history = useHistory();
+  // eslint-disable-next-line
   const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext);
 
   const displayUserIfAuthenticated = () => {

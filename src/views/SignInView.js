@@ -8,6 +8,7 @@ export const SignInView = () => {
     username: "",
     password: "",
   });
+  // eslint-disable-next-line
   const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext);
   const history = useHistory();
 

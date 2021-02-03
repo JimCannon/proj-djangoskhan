@@ -7,6 +7,7 @@ import { UserContext } from "../../../shared/provider/UserProvider";
 
 export const ProfileDropDown = () => {
   const history = useHistory();
+  // eslint-disable-next-line
   const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext);
 
   const logout = () => {
@@ -21,13 +22,13 @@ export const ProfileDropDown = () => {
 
   return (
     <div className="profileDropdown">
-      <span onClick={() => settings()}>Settings</span>
-      <span onClick={() => logout()}>Sign Out!</span>
+      {/* <span onClick={() => settings()}>Settings</span>
+      <span onClick={() => logout()}>Sign Out!</span> */}
 
-      {/* <ul>
+      <ul>
         <li onClick={() => settings()}>Settings</li>
         <li onClick={() => logout()}>Sign Out!</li>
-      </ul> */}
+      </ul>
     </div>
   );
 };

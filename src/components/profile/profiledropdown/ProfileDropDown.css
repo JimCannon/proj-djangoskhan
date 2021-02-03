@@ -1,11 +1,29 @@
 .profileDropdown {
-  display: none;
+  height: 10vh;
+  display: flex;
   justify-content: space-around;
+  align-items: center;
   position: absolute;
   background-color: black;
+  margin: auto;
 }
 
-.profileDropdown span {
+.profileDropdown ul {
+  margin-top: 20px;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.profileDropdown li {
+  color: white;
+}
+
+/* .profileDropdown span {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,7 +32,7 @@
   color: white;
   margin: auto;
   font-family: "Poppins", sans-serif;
-}
+} */
 
 /* .profileDropdown ul {
 

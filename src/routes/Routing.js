@@ -29,6 +29,7 @@ export const Routing = (props) => {
 
   useEffect(() => {
     checkIfUserIsAuthenticadInBrowser();
+    // eslint-disable-next-line
   }, []);
 
   const { children } = props;
