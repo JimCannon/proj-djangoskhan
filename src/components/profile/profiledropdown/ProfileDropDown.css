@@ -2,10 +2,13 @@
   height: 10vh;
   display: flex;
   justify-content: space-around;
-  align-items: center;
   position: absolute;
   background-color: black;
   margin: auto;
+  margin-top: 17px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .profileDropdown ul {
@@ -19,7 +22,7 @@
   justify-content: space-around;
 }
 
-.profileDropdown li {
+.profileDropdown ul li {
   color: white;
 }
 
