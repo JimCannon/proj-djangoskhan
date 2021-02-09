@@ -1,2 +1,10 @@
-  justify-content: center; /*centers items on the line (the x-axis by default)*/
-  align-items: center; /*centers items on the cross-axis (y by default)*/
+  justify-content: center; 
+    /*centers items on the line (the x-axis by default)*/
+  align-items: center; 
+    /*centers items on the cross-axis (y by default)*/
+  align-content: center
+    Vertical align within container
+  flex-wrap: wrap
+    controls how wrapping works
+  flex-direction:
+    direction of content flow

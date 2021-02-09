@@ -13,12 +13,20 @@ import { SettingsView } from "../views/desktopnavigationsviews/desktopnavigation
 export const Routing = (props) => {
   const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext);
 
-  const blockRouteIfAuthenticated = (navigateToView) => {
-    return authenticatedUser ? HomeView : navigateToView;
+  // const blockRouteIfAuthenticated = (navigateToView) => {
+  //   return authenticatedUser ? HomeView : navigateToView;
+  // };
+
+  // const blockRouteIfNotAuthenticated = (navigateToView) => {
+  //   return !authenticatedUser ? SignInView : navigateToView;
+  // };
+
+  const blockRouteIfAuthenticated = (allowedView, notAllowedView) => {
+    return !authenticatedUser ? allowedView : notAllowedView;
   };
 
-  const blockRouteIfNotAuthenticated = (navigateToView) => {
-    return !authenticatedUser ? SignInView : navigateToView;
+  const authenticationRequiered = (allowedView, notAllowedView) => {
+    return authenticatedUser ? allowedView : notAllowedView;
   };
 
   const checkIfUserIsAuthenticadInBrowser = () => {
@@ -43,14 +51,14 @@ export const Routing = (props) => {
         <Route
           exact
           path={RoutingPath.signInView}
-          component={blockRouteIfAuthenticated(SignInView)}
+          component={blockRouteIfAuthenticated(SignInView, HomeView)}
         />
         <Route exact path={RoutingPath.aboutUsView} component={AboutUsView} />
         <Route exact path={RoutingPath.scheduleView} component={ScheduleView} />
         <Route
           exact
           path={RoutingPath.settingsView}
-          component={blockRouteIfNotAuthenticated(SettingsView)}
+          component={authenticationRequiered(SettingsView, SignInView)}
         />
       </Switch>
     </Router>
