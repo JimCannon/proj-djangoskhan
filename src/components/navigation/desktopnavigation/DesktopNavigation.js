@@ -7,6 +7,7 @@ import { UserContext } from "../../../shared/provider/UserProvider";
 import { Profile } from "../../profile/Profile";
 import { DesktopNavigationTabs } from "./desktopnavigationtabs/DesktopNavigationTabs";
 import { Modal } from "../../../components/modal/Modal";
+import { SignInView } from "../../../views/SignInView";
 
 export const DesktopNavigation = () => {
   const history = useHistory();
@@ -21,6 +22,10 @@ export const DesktopNavigation = () => {
 
   const signInModal = () => {
     setShowModal(true);
+  };
+
+  const cancelSignInModal = () => {
+    setShowModal(false);
   };
 
   const displayUserIfAuthenticated = () => {
@@ -44,7 +49,10 @@ export const DesktopNavigation = () => {
         src={Logotype}
         alt=""
       />
-      <Modal show={showModal}>Hej!</Modal>
+      <Modal show={showModal} modalClosed={cancelSignInModal}>
+        {/* Hej! */}
+        <SignInView />
+      </Modal>
       <div className="desktopNavigationTabs">
         <DesktopNavigationTabs />
       </div>
