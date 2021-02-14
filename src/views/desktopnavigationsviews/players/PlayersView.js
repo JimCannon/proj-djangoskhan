@@ -9,12 +9,6 @@ export const PlayersView = () => {
     count <= 1 ? setCount(1) : setCount(count - 1);
   };
 
-  // const getDataFromStarWarsAPI = () => {
-  //   Axios.get(`https://swapi.dev/api/people/${count}`)
-  //     .then((response) => setStarswarsData(response))
-  //     .catch((error) => console.log(error));
-  // };
-
   const getDataFromStarWarsAPI2 = async () => {
     try {
       const response = await StarWarsAPIService.getStarWarsCharacter(count);

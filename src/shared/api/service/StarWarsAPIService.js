@@ -12,6 +12,7 @@ const getStarWarsCharacter = (characterNumber) => {
   return http.get(`/people/${characterNumber}`);
 };
 
+// eslint-disable-next-line
 export default {
   getDataLukeSkywalker,
   getDataDarthVaderAKATheBoss,

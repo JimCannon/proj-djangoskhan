@@ -18,28 +18,27 @@ export const SignInView = () => {
     history.push(RoutingPath.homeView);
   };
 
+  const updateLoginCredentials = (event) => {
+    setLoginCredentials({
+      ...loginCredentials,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div>
       <form>
         <input
+          name="username"
           placeholder="username"
-          onChange={(event) =>
-            setLoginCredentials({
-              ...loginCredentials,
-              username: event.target.value,
-            })
-          }
+          onChange={(event) => updateLoginCredentials(event)}
         />{" "}
         <br />
         <input
+          name="password"
           type="password"
           placeholder="password"
-          onChange={(event) =>
-            setLoginCredentials({
-              ...loginCredentials,
-              password: event.target.value,
-            })
-          }
+          onChange={(event) => updateLoginCredentials(event)}
         />
         <br />
         <button onClick={() => signIn()}>Sign in</button>
