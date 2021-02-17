@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import "./DesktopNavigation.css";
+import "./Navbar.css";
 import Logotype from "../../../shared/images/logotype.svg";
 import { useHistory } from "react-router-dom";
 import RoutingPath from "../../../routes/RoutingPath";
@@ -16,10 +17,6 @@ export const DesktopNavigation = () => {
   //set showmodal to false, preventing the popup
   const [showModal, setShowModal] = useState(false);
 
-  // const openModal = () => {
-  //   setShowModal((prev) => !prev);
-  // };
-
   const signInModal = () => {
     setShowModal(true);
   };
@@ -35,28 +32,56 @@ export const DesktopNavigation = () => {
       </div>
     ) : (
       // <span onClick={() => history.push(RoutingPath.signInView)} className="signIn">
-      <span onClick={() => signInModal()} className="signIn">
+      // <span onClick={() => signInModal()} className="signIn">
+      //   Sign in
+      // </span>
+      <div class="navbar-item" onClick={() => signInModal()}>
         Sign in
-      </span>
+      </div>
     );
   };
 
   return (
-    <div className="desktopNavigationWrapper">
-      <img
-        onClick={() => history.push(RoutingPath.homeView)}
-        className="navigationLogotype"
-        src={Logotype}
-        alt=""
-      />
-      <Modal show={showModal} modalClosed={cancelSignInModal}>
-        {/* Hej! */}
-        <SignInView />
-      </Modal>
-      <div className="desktopNavigationTabs">
-        <DesktopNavigationTabs />
+    <nav class="navbar">
+      <div class="container">
+        <div class="left">
+          <div class="navbar-item" onClick={() => history.push(RoutingPath.homeView)}>
+            Djangos Khan
+          </div>
+          <div class="navbar-item" onClick={() => history.push(RoutingPath.playersView)}>
+            Players
+          </div>
+          <div class="navbar-item" onClick={() => history.push(RoutingPath.scheduleView)}>
+            Schedule
+          </div>
+          <div class="navbar-item" onClick={() => history.push(RoutingPath.aboutUsView)}>
+            About us
+          </div>
+        </div>
+        <div class="right">
+          <Modal show={showModal} modalClosed={cancelSignInModal}>
+            <SignInView />
+          </Modal>
+          {displayUserIfAuthenticated()}
+        </div>
       </div>
-      {displayUserIfAuthenticated()}
-    </div>
+    </nav>
+
+    // <div className="desktopNavigationWrapper">
+    //   <img
+    //     onClick={() => history.push(RoutingPath.homeView)}
+    //     className="navigationLogotype"
+    //     src={Logotype}
+    //     alt=""
+    //   />
+    //   <Modal show={showModal} modalClosed={cancelSignInModal}>
+    //     {/* Hej! */}
+    //     <SignInView />
+    //   </Modal>
+    //   <div className="desktopNavigationTabs">
+    //     <DesktopNavigationTabs />
+    //   </div>
+    //   {displayUserIfAuthenticated()}
+    // </div>
   );
 };

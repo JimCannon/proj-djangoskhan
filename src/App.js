@@ -9,6 +9,8 @@ function App() {
     <UserProvider>
       <Routing>
         <Navigation />
+        {/* Main content */}
+        {/* Footer */}
       </Routing>
     </UserProvider>
   );
