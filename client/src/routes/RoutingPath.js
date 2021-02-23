@@ -1,4 +1,4 @@
-const homeView = "/home";
+const homeView = "/";
 const playersView = "/players";
 const signInView = "/signIn";
 const aboutUsView = "/aboutUs";

@@ -20,16 +20,8 @@ export const SideBar = (props) => {
         Close Hamburger
       </button>
       <ul>
-        <li
-          onClick={() => history.push(handleRedirect(RoutingPath.playersView))}
-        >
-          Players
-        </li>
-        <li
-          onClick={() => history.push(handleRedirect(RoutingPath.signInView))}
-        >
-          Sign In
-        </li>
+        <li onClick={() => history.push(handleRedirect(RoutingPath.playersView))}>Players</li>
+        <li onClick={() => history.push(handleRedirect(RoutingPath.signInView))}>Sign In</li>
       </ul>
     </div>
   );

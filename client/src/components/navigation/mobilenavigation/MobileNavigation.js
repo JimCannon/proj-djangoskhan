@@ -1,4 +1,4 @@
-import "./MobileNavigation.css";
+// import "./MobileNavigation.css";
 import { HamburgerButton } from "./hamburgerbutton/HamburgerButton";
 import { SideBar } from "./sidebar/SideBar";
 import { useState } from "react";
