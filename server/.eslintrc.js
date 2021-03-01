@@ -13,5 +13,6 @@ module.exports = {
 		"linebreak-style": ["warn", "windows"],
 		quotes: ["warn", "double"],
 		semi: ["warn", "never"],
+		process: ["never", "never"],
 	},
 }
