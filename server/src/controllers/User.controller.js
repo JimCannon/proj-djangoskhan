@@ -3,6 +3,7 @@ import UserModel from "../models/User.model.js"
 const createUser = async (req, res) => {
 	const user = new UserModel({
 		username: req.body.username,
+		age: req.body.age,
 		password: req.body.password,
 	})
 
@@ -23,18 +24,68 @@ const getAllUsers = async (req, res) => {
 	}
 }
 
-const getUserById = async (req, res) => {
+const deleteUser = async (req, res) => {
 	try {
-		const response = await UserModel.findById(req.params.userId)
-		res.status(200).send(response)
+		const dataBaseResponse = await UserModel.findByIdAndDelete(req.params.userId)
+		res.status(200).send({ message: "Successfully deleted user", data: dataBaseResponse })
 	} catch (error) {
-		res
-			.status(500)
-			.send({
-				message: "Error occured while trying to retrieve user with ID: " + req.params.userId,
-				message: error.message,
-			})
+		res.status(500).send({
+			message: "Error occured while trying to retrieve user with ID: " + req.params.userId,
+			message: error.message,
+		})
 	}
 }
 
-export default { createUser, getAllUsers, getUserById }
+const updateUser = async (req, res) => {
+	const data = {
+		username: req.body.username,
+		password: req.body.password,
+	}
+	try {
+		const dataBaseResponse = await UserModel.findByIdAndUpdate(req.params.userId, data, {
+			new: true,
+		})
+		res.status(200).send({
+			message: "Successfully updated user",
+			data: dataBaseResponse,
+		})
+	} catch (error) {
+		res.status(500).send({
+			message: "Error occured while trying to retrieve user with ID: " + req.params.userId,
+			message: error.message,
+		})
+	}
+}
+
+const queryUsername = async (req, res) => {
+	try {
+		const dataBaseResponse = await UserModel.find({ username: req.query.username })
+		res.status(200).send(dataBaseResponse)
+	} catch (error) {
+		res.status(500).send({
+			message: `Error occured while trying to retrieve user with username: ${req.query.username}`,
+			message: error,
+		})
+	}
+}
+
+const getUserById = async (req, res) => {
+	try {
+		const dataBaseResponse = await UserModel.findOne({ _id: req.query._id })
+		res.status(200).send(dataBaseResponse)
+	} catch (error) {
+		res.status(500).send({
+			error: `Error occured while trying to retrieve user with the ID: ${req.query._id}`,
+			message: error,
+		})
+	}
+}
+
+export default {
+	createUser,
+	getAllUsers,
+	deleteUser,
+	updateUser,
+	queryUsername,
+	getUserById,
+}

@@ -1,34 +1,32 @@
-import RoutingPath from "../../../routes/RoutingPath";
-import { useHistory } from "react-router-dom";
-import { useContext } from "react";
+import RoutingPath from "../../../routes/RoutingPath"
+import { useHistory } from "react-router-dom"
+import { useContext } from "react"
 
-import "./ProfileDropDown.css";
-import { UserContext } from "../../../shared/provider/UserProvider";
+import "./ProfileDropDown.css"
+import { UserContext } from "../../../shared/provider/UserProvider"
 
 export const ProfileDropDown = () => {
-  const history = useHistory();
-  // eslint-disable-next-line
-  const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext);
+	const history = useHistory()
+	// eslint-disable-next-line
+	const { authenticatedUserProvider } = useContext(UserContext)
+	const [authenticatedUser, setAuthenticatedUser] = authenticatedUserProvider
 
-  const logout = () => {
-    setAuthenticatedUser(false);
-    localStorage.removeItem("user");
-    history.push(RoutingPath.homeView);
-  };
+	const logout = () => {
+		setAuthenticatedUser(false)
+		localStorage.removeItem("user")
+		history.push(RoutingPath.homeView)
+	}
 
-  const settings = () => {
-    history.push(RoutingPath.settingsView);
-  };
+	const settings = () => {
+		history.push(RoutingPath.settingsView)
+	}
 
-  return (
-    <div className="profileDropdown">
-      {/* <span onClick={() => settings()}>Settings</span>
-      <span onClick={() => logout()}>Sign Out!</span> */}
-
-      <ul>
-        <li onClick={() => settings()}>Settings</li>
-        <li onClick={() => logout()}>Sign Out!</li>
-      </ul>
-    </div>
-  );
-};
+	return (
+		<div className="profileDropdown">
+			<ul>
+				<li onClick={() => settings()}>Settings</li>
+				<li onClick={() => logout()}>Sign Out!</li>
+			</ul>
+		</div>
+	)
+}

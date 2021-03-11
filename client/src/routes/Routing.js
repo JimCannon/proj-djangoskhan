@@ -9,11 +9,10 @@ import { UserContext } from "../shared/provider/UserProvider"
 import { ScheduleView } from "../views/desktopnavigationsviews/schedule/ScheduleView"
 import { AboutUsView } from "../views/desktopnavigationsviews/aboutus/AboutUsView"
 import { SettingsView } from "../views/desktopnavigationsviews/desktopnavigationstabsview/settings/SettingsView"
-import { AppRoute } from "./AppRoute"
-import { PlayersLayout } from "../components/layout/PlayersLayout"
 
 export const Routing = (props) => {
-	const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
+	const { authenticatedUserProvider } = useContext(UserContext)
+	const [authenticatedUser, setAuthenticatedUser] = authenticatedUserProvider
 
 	const blockRouteIfAuthenticated = (allowedView, notAllowedView) => {
 		return !authenticatedUser ? allowedView : notAllowedView
@@ -41,13 +40,7 @@ export const Routing = (props) => {
 			{children}
 			<Switch>
 				<Route exact path={RoutingPath.homeView} component={HomeView} />
-				{/* <Route exact path={RoutingPath.playersView} component={PlayersView} /> */}
-				<AppRoute
-					exact
-					path={RoutingPath.playersView}
-					component={PlayersView}
-					layout={PlayersLayout}
-				/>
+				<Route exact path={RoutingPath.playersView} component={PlayersView} />
 				<Route
 					exact
 					path={RoutingPath.signInView}
