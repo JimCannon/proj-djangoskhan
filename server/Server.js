@@ -20,13 +20,6 @@ PlayerRoutes.routes(app)
 app.use(Middlewares.notFound)
 app.use(Middlewares.errorHandler)
 
-// function isAuthenticated(req, res, next) {
-// 	req.query.admin === "true"
-// 		? res.send("You are the father!")
-// 		: res.send("NOOOOOOOOOOOO You are not the father!!!(cant make api call to this url)")
-// 	next()
-// }
-
 Configuration.connectToPort(app)
 Configuration.connectToDatabase()
 

@@ -38,6 +38,45 @@ const updateUser = () => {
 	test("Should manipulate data of a current a object in the user entity", (done) => {
 		Chai.request(app)
 			.put(`/user/${userID}`)
+			.send({ username: "DjangoOne", _id: userID })
+			.end((request, response) => {
+				response.should.have.a.status(200)
+				response.should.have.be.a("object")
+				response.body.should.have.property("_id").eq(userID)
+				done()
+			})
+	})
+}
+
+describe("TESTING THE USER API ENTITY", () => {
+	testingNonExistentRoute()
+	getAllUsers()
+	updateUser()
+})
+
+/* 
+const updateUser = () => {
+    const userID = "603c9682f92c0942a4524d7a"
+
+    test("Should manipulate data of a current a object in the user entity", (done) => {
+        Chai.request(app)
+            .put(`/user/${userID}`)
+            .send({ username: "DjangoOne", _id: userID })
+            .end((request, response) => {
+                response.should.have.a.status(200)
+                response.should.have.be.a("object")
+                response.body.should.have.property("_id").eq(userID) //<-- Varför funkar inte denna raden?! WTF??
+                done()
+            })
+    })
+}
+
+const updateUser = () => {
+	const userID = "603c9682f92c0942a4524d7a"
+
+	test("Should manipulate data of a current a object in the user entity", (done) => {
+		Chai.request(app)
+			.put(`/user/${userID}`)
 			.send({ username: "DjangoOne" })
 			.end((request, response) => {
 				response.should.have.a.status(200)
@@ -49,8 +88,4 @@ const updateUser = () => {
 	})
 }
 
-describe("TESTING THE USER API ENTITY", () => {
-	testingNonExistentRoute()
-	getAllUsers()
-	updateUser()
-})
+*/
