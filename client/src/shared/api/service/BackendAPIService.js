@@ -8,7 +8,12 @@ const getAllUsers = () => {
 	return http.get("/user")
 }
 
+const deleteUser = (id) => {
+	return http.delete(`/user/${id}`)
+}
+
 export default {
 	createUser,
 	getAllUsers,
+	deleteUser,
 }

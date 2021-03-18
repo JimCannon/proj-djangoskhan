@@ -32,30 +32,30 @@ export const DesktopNavigation = () => {
 				<Profile />
 			</div>
 		) : (
-			<div class="navbar-item" onClick={() => signInModal()}>
+			<div className="navbar-item" onClick={() => signInModal()}>
 				Sign in
 			</div>
 		)
 	}
 
 	return (
-		<nav class="navbar">
-			<div class="container">
-				<div class="left">
-					<div class="navbar-logo" onClick={() => history.push(RoutingPath.homeView)}>
+		<nav className="navbar">
+			<div className="container">
+				<div className="left">
+					<div className="navbar-logo" onClick={() => history.push(RoutingPath.homeView)}>
 						Djangos Khan
 					</div>
-					<div class="navbar-item" onClick={() => history.push(RoutingPath.playersView)}>
+					<div className="navbar-item" onClick={() => history.push(RoutingPath.playersView)}>
 						Players
 					</div>
-					<div class="navbar-item" onClick={() => history.push(RoutingPath.scheduleView)}>
+					<div className="navbar-item" onClick={() => history.push(RoutingPath.scheduleView)}>
 						Schedule
 					</div>
-					<div class="navbar-item" onClick={() => history.push(RoutingPath.aboutUsView)}>
+					<div className="navbar-item" onClick={() => history.push(RoutingPath.aboutUsView)}>
 						About us
 					</div>
 				</div>
-				<div class="right">
+				<div className="right">
 					<Modal show={showModal} modalClosed={cancelSignInModal}>
 						<SignInView />
 					</Modal>
