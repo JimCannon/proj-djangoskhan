@@ -6,6 +6,7 @@ import "./PlayersView.css"
 export const PlayersView = () => {
 	const [users, setUsers] = useState([])
 	const [loading, setLoading] = useState(false)
+	const [updateField, setUpdateField] = useState(true)
 	const { playersProvider } = useContext(UserContext)
 	const [playersChar] = playersProvider
 	const [newUser, setNewUser] = useState({
@@ -14,10 +15,20 @@ export const PlayersView = () => {
 		password: "secret",
 	})
 
-	const create = async () => {
+	const createUser = async () => {
 		try {
 			setLoading(true)
 			await BackendAPIService.createUser(newUser)
+			setLoading(false)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const updateUser = async (id, data) => {
+		try {
+			setLoading(true)
+			await BackendAPIService.updateUser(id, data)
 			setLoading(false)
 		} catch (error) {
 			console.log(error)
@@ -43,6 +54,11 @@ export const PlayersView = () => {
 		fetchData()
 	}, [loading])
 
+	const updateUserButton = () => {
+		setUpdateField(!updateField)
+		console.log(updateField)
+	}
+
 	/* Make a playersCard component instead */
 	return (
 		<div>
@@ -52,6 +68,9 @@ export const PlayersView = () => {
 						<h3>Name: {x.username}</h3>
 						{x.age ? <h3>Age: {x.age}</h3> : <h3>N/A</h3>}
 						<p onClick={() => deleteUser(x._id)}>Remove player</p>
+						<p onClick={() => updateUser(x._id)}>Update player</p>
+						{updateField ? <input /> : <h3>Name: {x.username}</h3>}
+						<button onClick={() => updateUserButton()}>Update User</button>
 					</div>
 				))}
 			</div>
@@ -59,16 +78,15 @@ export const PlayersView = () => {
 			<div>
 				<h1>Backend API:</h1>
 				<p>USERNAME</p>
-				<input
-					onChange={(event) => setNewUser({ ...newUser, username: event.target.value })}
-				/>{" "}
+				<input onChange={(event) => setNewUser({ ...newUser, username: event.target.value })} />
 				<br />
 				<p>PASSWORD</p>
 				<input onChange={(event) => setNewUser({ ...newUser, password: event.target.value })} />
 				<br />
 				<p>AGE</p>
-				<input onChange={(event) => setNewUser({ ...newUser, age: event.target.value })} /> <br />
-				<button onClick={() => create()}>Create User</button>
+				<input onChange={(event) => setNewUser({ ...newUser, age: event.target.value })} />
+				<br />
+				<button onClick={() => createUser()}>Create User</button>
 			</div>
 		</div>
 	)
