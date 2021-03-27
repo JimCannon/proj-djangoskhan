@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react"
 import { UserContext } from "../../../shared/provider/UserProvider"
 import BackendAPIService from "../../../shared/api/service/BackendAPIService"
-import { PlayersCards } from "./playercard/PlayersCards"
 import "./PlayersView.css"
+import { PlayerList } from "../../../components/playerList/PlayerList"
 
 export const PlayersView = () => {
 	const [users, setUsers] = useState([])
@@ -71,17 +71,10 @@ export const PlayersView = () => {
 	return (
 		<div>
 			<div className="playersContainer">
-				<PlayersCards users={users} updateField={updateField} />
-				{users.map((x) => (
-					<div className="playersCard" key={x._id} onClick={() => console.log(x._id)}>
-						<h3>Name: {x.username}</h3>
-						{x.age ? <h3>Age: {x.age}</h3> : <h3>N/A</h3>}
-						<p onClick={() => deleteUser(x._id)}>Remove player</p>
-						<p onClick={() => updateUser(x._id, x)}>Update player</p>
-						{updateField ? <input /> : <h3>Name: {x.username}</h3>}
-						<button onClick={() => updateUserButton()}>Update User</button>
-					</div>
-				))}
+				<PlayerList users={users} setUsers={setUsers} />
+				{/* {users.map((user) => {
+					return <PlayersCards users={users} setUsers={setUsers} users={users} />
+				})} */}
 			</div>
 			<hr />
 			<div>

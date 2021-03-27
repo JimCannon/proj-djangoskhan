@@ -1,0 +1,40 @@
+.iconContainer {
+	display: flex;
+	margin-top: auto;
+}
+
+.playerIcon {
+	margin: 0.25rem;
+	height: 24px;
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 4px;
+	background-color: black;
+}
+
+.done {
+	margin-left: auto !important;
+}
+
+.done:hover {
+	background-color: #1b89fa;
+}
+
+.cancel:hover {
+	background-color: #ad2117;
+	color: white;
+}
+
+.playerEditContainer {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.playerEditInput {
+	margin: 0.7em 0;
+	outline: none;
+	border-width: 0 0 2px;
+	border-color: #000;
+	font-size: 1rem;
+}

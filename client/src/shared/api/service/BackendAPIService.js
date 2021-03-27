@@ -16,9 +16,14 @@ const updateUser = (id, data) => {
 	return http.put(`/user/${id}`, data)
 }
 
+const updateUserTest = (userInfo) => {
+	return http.put(`/user/`, { ...userInfo })
+}
+
 export default {
 	createUser,
 	getAllUsers,
 	deleteUser,
 	updateUser,
+	updateUserTest,
 }
