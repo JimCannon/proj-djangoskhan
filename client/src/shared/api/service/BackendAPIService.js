@@ -12,12 +12,12 @@ const deleteUser = (id) => {
 	return http.delete(`/user/${id}`)
 }
 
-const updateUser = (id, data) => {
-	return http.put(`/user/${id}`, data)
+const updateUser = (data) => {
+	return http.put(`/user/${data._id}`, data)
 }
 
 const updateUserTest = (userInfo) => {
-	return http.put(`/user/`, { ...userInfo })
+	return http.put(`/user`, { ...userInfo })
 }
 
 export default {

@@ -9,7 +9,12 @@ export const PlayerCard = ({ user, setUsers, users }) => {
 	return (
 		<div className="playerCard">
 			{edit ? (
-				<PlayerEdit user={user} setUsers={setUsers} users={users}></PlayerEdit>
+				<PlayerEdit
+					user={user}
+					setEdit={setEdit}
+					users={users}
+					setUsers={setUsers.bind(this)}
+				></PlayerEdit>
 			) : (
 				<PlayerInfo user={user} setEdit={setEdit}></PlayerInfo>
 			)}

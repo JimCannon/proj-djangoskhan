@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { UserContext } from "../../../../shared/provider/UserProvider"
 import EditSVG from "../../../../shared/images/create-white-18dp.svg"
+import "./PlayerInfo.css"
 
 export const PlayerInfo = ({ user, setEdit }) => {
 	return (

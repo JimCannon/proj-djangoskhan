@@ -1,4 +1,4 @@
-.playersCard {
+.playerCard {
 	display: flex;
 	flex-direction: column;
 	width: 20%;
@@ -8,7 +8,7 @@
 	cursor: pointer;
 }
 
-.playersCard {
+.playerCard {
 	margin: 1.5rem;
 	border-style: solid;
 	padding: 1rem;
@@ -17,13 +17,13 @@
 	width: 20%;
 }
 
-.playersCard p {
+.playerCard p {
 	margin: 0.5em;
 	font-size: 1em;
 }
 
 @media only screen and (max-width: 700px) {
-	.playersCard {
+	.playerCard {
 		width: 75%;
 	}
 }
