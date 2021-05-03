@@ -20,7 +20,7 @@ export const PlayersView = () => {
 	}, [loading])
 
 	return (
-		<div>
+		<div className="playersBody">
 			<div className="playersContainer">
 				<PlayerList users={users} setUsers={setUsers} />
 			</div>

@@ -4,10 +4,7 @@ import BackendAPIService from "../../../shared/api/service/BackendAPIService"
 export const ScheduleView = () => {
 	const [users, setUsers] = useState([])
 	const [loading, setLoading] = useState(false)
-	const [newUser, setNewUser] = useState({
-		username: "Flädersaft",
-		password: "secret",
-	})
+	const [newUser, setNewUser] = useState({})
 
 	const create = async () => {
 		try {
@@ -34,9 +31,10 @@ export const ScheduleView = () => {
 			<input onChange={(event) => setNewUser({ ...newUser, username: event.target.value })} />{" "}
 			<br />
 			<p>PASSWORD</p>
-			<input /> <br />
+			<input onChange={(event) => setNewUser({ ...newUser, password: event.target.value })} />{" "}
+			<br />
 			<p>AGE</p>
-			<input /> <br />
+			<input onChange={(event) => setNewUser({ ...newUser, age: event.target.value })} /> <br />
 			<button onClick={() => create()}>Create User</button>
 			<hr />
 			<h1>Display all users: </h1>

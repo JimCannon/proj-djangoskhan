@@ -44,9 +44,13 @@ const updateUser = async (req, res) => {
 	}
 	const id = req.params.userId ? req.params.userId : req.body._id
 	try {
-		const dataBaseResponse = await UserModel.findByIdAndUpdate(req.params.userId, data, {
-			new: true,
-		})
+		const dataBaseResponse = await UserModel.findByIdAndUpdate(
+			req.params.userId,
+			{ $set: data },
+			{
+				new: true,
+			}
+		)
 		console.log(data)
 		res.status(200).send({
 			message: "Successfully updated user",

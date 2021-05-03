@@ -7,6 +7,9 @@ import Configuration from "./configurations/Configurations.js"
 import UserRoutes from "./src/routes/User.routes.js"
 import PlayerRoutes from "./src/routes/Player.routes.js"
 import cors from "cors"
+// import session from "express-session"
+// import connectRedis from "connect-redis"
+// import redisClient from "./db/redis.js"
 
 dotenv.config()
 const app = express()

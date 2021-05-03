@@ -30,6 +30,7 @@ const PlayerSchema = mongoose.Schema(
 				dribbling: { type: Number, allowNull: false, required: true },
 				defense: { type: Number, allowNull: false, required: true },
 				physical: { type: Number, allowNull: false, required: true },
+				// new stat beastRating: pace + shooting + physical / 3 = Beast Rating
 			},
 		],
 	},
@@ -38,12 +39,3 @@ const PlayerSchema = mongoose.Schema(
 
 const PlayerModel = mongoose.model("player", PlayerSchema)
 export default PlayerModel
-
-/*  
-			{ pace: { type: Number, allowNull: false, required: true } },
-			{ shooting: { type: Number, allowNull: false, required: true } },
-			{ passing: { type: Number, allowNull: false, required: true } },
-			{ dribbling: { type: Number, allowNull: false, required: true } },
-			{ defense: { type: Number, allowNull: false, required: true } },
-			{ physical: { type: Number, allowNull: false, required: true } },
-*/
