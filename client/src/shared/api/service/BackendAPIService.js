@@ -5,7 +5,7 @@ const createUser = (data) => {
 }
 
 const getAllUsers = () => {
-	return http.get("/user")
+	return http.get("/users")
 }
 
 const deleteUser = (id) => {
@@ -20,10 +20,15 @@ const updateUserTest = (userInfo) => {
 	return http.put(`/user`, { ...userInfo })
 }
 
+const getUserById = (userId) => {
+	return http.get(`/user?_id=${userId}`)
+}
+
 export default {
 	createUser,
 	getAllUsers,
 	deleteUser,
 	updateUser,
 	updateUserTest,
+	getUserById,
 }

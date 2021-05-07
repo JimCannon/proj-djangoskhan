@@ -1,3 +1,6 @@
+$base-color: #e4cc18;
+$background-color: #202020;
+
 .name {
 	display: flex;
 	justify-content: center;
@@ -17,7 +20,7 @@
 		font-weight: 700;
 		font-size: 18px;
 		&:hover {
-			color: #e4cc18;
+			color: $base-color;
 		}
 	}
 	h6 {
@@ -54,7 +57,7 @@
 		animation-fill-mode: forwards;
 		h6 {
 			text-transform: uppercase;
-			color: #e4cc18;
+			color: $base-color;
 		}
 		p {
 			font-size: 12px;
@@ -84,7 +87,7 @@
 		margin-bottom: 5px;
 		font-weight: 700;
 		text-transform: uppercase;
-		color: #e4cc18;
+		color: $base-color;
 	}
 	.rating {
 		h6 {
@@ -95,12 +98,12 @@
 			color: white;
 		}
 		.fab {
-			color: #e4cc18;
+			color: $base-color;
 			font-size: 14px;
 		}
 		.bar {
 			height: 5px;
-			background: #e4cc18;
+			background: $base-color;
 			text-align: right;
 			p {
 				color: white;
@@ -196,7 +199,7 @@
 	cursor: pointer;
 	border-radius: 50%;
 	padding: 4px;
-	background-color: black;
+	background-color: $background-color;
 }
 
 .edit {

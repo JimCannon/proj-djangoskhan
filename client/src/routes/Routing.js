@@ -9,6 +9,7 @@ import { UserContext } from "../shared/provider/UserProvider"
 import { ScheduleView } from "../views/desktopnavigationsviews/schedule/ScheduleView"
 import { AboutUsView } from "../views/desktopnavigationsviews/aboutus/AboutUsView"
 import { SettingsView } from "../views/desktopnavigationsviews/desktopnavigationstabsview/settings/SettingsView"
+import { PlayerBio } from "../views/desktopnavigationsviews/playerBio/PlayerBio"
 
 export const Routing = (props) => {
 	const { authenticatedUserProvider } = useContext(UserContext)
@@ -41,6 +42,7 @@ export const Routing = (props) => {
 			<Switch>
 				<Route exact path={RoutingPath.homeView} component={HomeView} />
 				<Route exact path={RoutingPath.playersView} component={PlayersView} />
+				<Route exact path={RoutingPath.playerBio + "/:_id"} component={PlayerBio} />
 				<Route
 					exact
 					path={RoutingPath.signInView}

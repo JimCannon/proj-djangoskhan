@@ -1,0 +1,39 @@
+$base-color: #e4cc18;
+$background-color: #202020;
+$banner-color: hsl(0, 0%, 90%);
+
+.player-bio {
+	.player-hero {
+		padding: 0;
+		position: relative;
+		height: 60%;
+		background-color: $banner-color;
+		.container {
+			padding: 0;
+			// background-color: #efefef;
+			position: relative;
+			width: 75%;
+			margin: 0 auto;
+			.player-hero-details {
+				position: absolute;
+				background-color: #fff;
+				right: 4%;
+				bottom: 0;
+				width: 66%;
+				padding: 3rem 4rem 7rem;
+				transform: skew(-3deg);
+			}
+			.player-hero-image {
+				padding-top: 3rem;
+				img {
+					position: relative;
+					padding-top: 3rem;
+					margin-left: -45px;
+					max-width: 40%;
+					z-index: 1;
+					bottom: -7px;
+				}
+			}
+		}
+	}
+}

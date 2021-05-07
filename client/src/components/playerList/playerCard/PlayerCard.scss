@@ -1,3 +1,6 @@
+$base-color: #e4cc18;
+$background-color: #202020;
+
 .playerCard {
 	position: relative;
 	display: flex;
@@ -9,9 +12,7 @@
 	border-radius: 10px;
 	cursor: pointer;
 	height: 400px;
-	// box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.15);
-	// background: linear-gradient(0deg, rgba(0, 0, 0, 1) 75%, #e4cc18 75%);
-	background-color: #202020;
+	background-color: $background-color;
 	overflow: hidden;
 	.ds-top {
 		position: absolute;
@@ -21,8 +22,7 @@
 		left: 0;
 		width: 20;
 		height: 90px;
-		background: #e4cc18;
-		// border-radius: 10px 10px 0px 0px;
+		background: $base-color;
 		animation: dsTop 1s;
 	}
 	.playerPicture {
@@ -31,7 +31,6 @@
 		/* Center vertically */
 		position: absolute;
 		top: 25%;
-		margin-top: -25px; /* half this element's height */
 	}
 	.avatar-holder {
 		position: absolute;

@@ -5,6 +5,7 @@ export const UserContext = createContext()
 export const UserProvider = (props) => {
 	const [authenticatedUserProvider, setAuthenticatedUserProvider] = useState()
 	const [playersProvider, setPlayersProvider] = useState()
+	const [userBioProvider, setUserBioProvider] = useState()
 	const { children } = props
 
 	return (
@@ -12,6 +13,7 @@ export const UserProvider = (props) => {
 			value={{
 				authenticatedUserProvider: [authenticatedUserProvider, setAuthenticatedUserProvider],
 				playersProvider: [playersProvider, setPlayersProvider],
+				userBioProvider: [userBioProvider, setUserBioProvider],
 			}}
 		>
 			{children}
