@@ -7,32 +7,33 @@ import RoutingPath from "../../../routes/RoutingPath"
 import djangoHero from "../../../shared/images/djangoHero.jpg"
 import "./PlayerCard.scss"
 
-export const PlayerCard = ({ user, setUsers, users }) => {
-	const { userBioProvider } = useContext(UserContext)
-	const [userBio, setUserBio] = userBioProvider
+export const PlayerCard = ({ player, setPlayers, players }) => {
+	const { playersBioProvider } = useContext(UserContext)
+	// eslint-disable-next-line
+	const [playerBio, setPlayerBio] = playersBioProvider
 	const history = useHistory()
 	const [edit, setEdit] = useState(false)
 
-	const openPlayerBioAndSendUserData = (user) => {
-		setUserBio(user)
-		history.push(RoutingPath.playerBio + "/" + user._id)
+	const openPlayerBioAndSendPlayerData = (player) => {
+		setPlayerBio(player)
+		history.push(RoutingPath.playerBio + "/" + player._id)
 	}
 
 	return (
-		<div className="playerCard" onClick={() => openPlayerBioAndSendUserData(user)}>
+		<div className="playerCard" onClick={() => openPlayerBioAndSendPlayerData(player)}>
 			<div className="ds-top"></div>
 			<div className="avatar-holder">
 				<img src={djangoHero} alt="Django" />
 			</div>
 			{edit ? (
 				<PlayerEdit
-					user={user}
+					player={player}
 					setEdit={setEdit}
-					users={users}
-					setUsers={setUsers.bind(this)}
+					players={players}
+					setPlayers={setPlayers.bind(this)}
 				></PlayerEdit>
 			) : (
-				<PlayerInfo user={user} setEdit={setEdit}></PlayerInfo>
+				<PlayerInfo player={player} setEdit={setEdit}></PlayerInfo>
 			)}
 		</div>
 	)

@@ -1,12 +1,9 @@
 import { useContext, useState } from "react"
-// import "./DesktopNavigation.css";
 import "./Navbar.css"
-import Logotype from "../../../shared/images/logotype.svg"
 import { useHistory } from "react-router-dom"
 import RoutingPath from "../../../routes/RoutingPath"
 import { UserContext } from "../../../shared/provider/UserProvider"
 import { Profile } from "../../profile/Profile"
-import { DesktopNavigationTabs } from "./desktopnavigationtabs/DesktopNavigationTabs"
 import { Modal } from "../../../components/modal/Modal"
 import { SignInView } from "../../../views/SignInView"
 
@@ -14,6 +11,7 @@ export const DesktopNavigation = () => {
 	const history = useHistory()
 	// eslint-disable-next-line
 	const { authenticatedUserProvider } = useContext(UserContext)
+	// eslint-disable-next-line
 	const [authenticatedUser, setAuthenticatedUser] = authenticatedUserProvider
 	//set showmodal to false, preventing the popup
 	const [showModal, setShowModal] = useState(false)

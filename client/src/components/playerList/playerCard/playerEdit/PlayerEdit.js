@@ -14,7 +14,7 @@ export const PlayerEdit = ({ user, setEdit, setUsers, users }) => {
 	const handleEdit = async () => {
 		const res = await BackendAPIService.updateUser(userInfo)
 		if (res && res.status === 200) {
-			let updatedUsers = users.map((e) => (e._id == userInfo._id ? (e = userInfo) : e))
+			let updatedUsers = users.map((e) => (e._id === userInfo._id ? (e = userInfo) : e))
 			setUsers(updatedUsers)
 			setEdit(false)
 		}

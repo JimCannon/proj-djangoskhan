@@ -1,18 +1,15 @@
-import { useState, useEffect, useContext } from "react"
-import { UserContext } from "../../../shared/provider/UserProvider"
+import { useState, useEffect } from "react"
 import BackendAPIService from "../../../shared/api/service/BackendAPIService"
 import "./PlayersView.css"
 import { PlayerList } from "../../../components/playerList/PlayerList"
 
 export const PlayersView = () => {
-	const [users, setUsers] = useState([])
+	const [players, setPlayers] = useState([])
 	const [loading, setLoading] = useState(false)
-	const { playersProvider } = useContext(UserContext)
-	const [playersChar] = playersProvider
 
 	const fetchData = async () => {
-		const response = await BackendAPIService.getAllUsers()
-		setUsers(response.data)
+		const response = await BackendAPIService.getAllPlayers()
+		setPlayers(response.data)
 	}
 
 	useEffect(() => {
@@ -22,7 +19,7 @@ export const PlayersView = () => {
 	return (
 		<div className="playersBody">
 			<div className="playersContainer">
-				<PlayerList users={users} setUsers={setUsers} />
+				<PlayerList players={players} setPlayers={setPlayers} setLoading={setLoading} />
 			</div>
 		</div>
 	)

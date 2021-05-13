@@ -9,7 +9,7 @@ export const ProfileDropDown = () => {
 	const history = useHistory()
 	// eslint-disable-next-line
 	const { authenticatedUserProvider } = useContext(UserContext)
-	const [authenticatedUser, setAuthenticatedUser] = authenticatedUserProvider
+	const [setAuthenticatedUser] = authenticatedUserProvider
 
 	const logout = () => {
 		setAuthenticatedUser(false)

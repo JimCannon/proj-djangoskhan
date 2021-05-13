@@ -19,9 +19,27 @@ const PlayerSchema = mongoose.Schema(
 			allowNull: false,
 			required: true,
 		},
-		nation: { type: String, allowNull: false, required: true },
-		position: { type: String, allowNull: false, required: true },
-		rating: { type: Number, allowNull: false, required: true },
+		nation: {
+			type: String,
+			allowNull: false,
+			required: true,
+		},
+		position: {
+			type: String,
+			allowNull: false,
+			required: true,
+		},
+		rating: {
+			type: Number,
+			allowNull: false,
+			required: true,
+		},
+		playerNumber: {
+			type: Number,
+			unique: true,
+			allowNull: false,
+			required: true,
+		},
 		stats: [
 			{
 				pace: { type: Number, allowNull: false, required: true },

@@ -6,6 +6,7 @@ const createUser = async (req, res) => {
 		age: req.body.age,
 		password: req.body.password,
 	})
+	console.log(req.body)
 
 	try {
 		const response = await user.save()

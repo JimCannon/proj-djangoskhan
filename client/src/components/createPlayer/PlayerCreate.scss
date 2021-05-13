@@ -1,0 +1,8 @@
+.player-create-container {
+	display: flex;
+	flex-direction: row;
+	.player-create-form {
+		display: flex;
+		flex-direction: column;
+	}
+}

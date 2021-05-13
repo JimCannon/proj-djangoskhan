@@ -9,8 +9,20 @@ const createPlayer = async (req, res) => {
 		nation: req.body.nation,
 		position: req.body.position,
 		rating: req.body.rating,
-		stats: req.body.stats, //stats is an array with numbers
+		playerNumber: req.body.playerNumber,
+		stats: [
+			{
+				pace: req.body.pace,
+				shooting: req.body.shooting,
+				passing: req.body.passing,
+				dribbling: req.body.dribbling,
+				defense: req.body.defense,
+				physical: req.body.physical,
+			},
+		],
 	})
+	console.log(req.body)
+	console.log(typeof req.body.age)
 	try {
 		const databaseResponse = await player.save()
 		res.status(201).send(databaseResponse)
@@ -73,9 +85,22 @@ const updatePlayer = async (req, res) => {
 	}
 }
 
+const getPlayerById = async (req, res) => {
+	try {
+		const dataBaseResponse = await PlayerModel.findOne({ _id: req.query._id })
+		res.status(200).send(dataBaseResponse)
+	} catch (error) {
+		res.status(500).send({
+			error: `Error occured while trying to retrieve player with the ID: ${req.query._id}`,
+			message: error,
+		})
+	}
+}
+
 export default {
 	createPlayer,
 	getAllPlayers,
 	deletePlayer,
 	updatePlayer,
+	getPlayerById,
 }

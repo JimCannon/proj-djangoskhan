@@ -1,12 +1,22 @@
-import React, { useContext } from "react"
-import { UserContext } from "../../../shared/provider/UserProvider"
+import React, { useState, useEffect } from "react"
 import traoreHero from "../../../shared/images/traore.png"
 import "./PlayerBio.scss"
 import { PlayerStats } from "../../../components/playerStats/PlayerStats"
+import BackendAPIService from "../../../shared/api/service/BackendAPIService"
 
 export const PlayerBio = () => {
-	const { userBioProvider } = useContext(UserContext)
-	const [userBio, setUserBio] = userBioProvider
+	const [player, setPlayer] = useState()
+
+	useEffect(() => {
+		let pathName = window.location.pathname
+		let id = pathName.split("/").pop()
+		fetchData(id)
+	}, [])
+
+	const fetchData = async (id) => {
+		const response = await BackendAPIService.getPlayerById(id)
+		setPlayer(response.data)
+	}
 
 	return (
 		<div className="player-bio">
@@ -14,18 +24,17 @@ export const PlayerBio = () => {
 				<div className="container">
 					<div className="player-hero-details">
 						<div className="player-hero-inner-details">
-							<h1>he</h1>
-							<h1>he</h1>
-							<h1>he</h1>
+							<h1>{player?.playerNumber}</h1>
+							<h1>{player?.name}</h1>
+							<h1>{player?.nation}</h1>
 						</div>
 					</div>
 					<div className="player-hero-image">
-						<img src={traoreHero} />
+						<img src={traoreHero} alt="traoreHero" />
 					</div>
 				</div>
 			</div>
-			{console.log(userBio)}
-			<PlayerStats user={userBio}></PlayerStats>
+			<PlayerStats player={player}></PlayerStats>
 		</div>
 	)
 }
