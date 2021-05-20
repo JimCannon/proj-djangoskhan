@@ -1,6 +1,16 @@
 import React, { useState } from "react"
 import BackendAPIService from "../../shared/api/service/BackendAPIService"
+import styled from "styled-components"
 import "./PlayerCreate.scss"
+
+const Foo = styled.button`
+	background: transparent;
+	border-radius: 3px;
+	border: 2px solid palevioletred;
+	color: palevioletred;
+	margin: 0 1em;
+	padding: 0.25em 1em;
+`
 
 export const PlayerCreate = ({ modalClosed, setLoading }) => {
 	// eslint-disable-next-line
@@ -88,7 +98,7 @@ export const PlayerCreate = ({ modalClosed, setLoading }) => {
 				<label>Physical: </label>
 				<input name="physical" onChange={(event) => createNewPlayerInput(event)} />
 			</form>
-			<button onClick={() => createPlayer()}>Create Player</button>
+			<Foo onClick={() => createPlayer()}>Create Player</Foo>
 		</div>
 	)
 }

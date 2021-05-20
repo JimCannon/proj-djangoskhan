@@ -1,5 +1,22 @@
 import EditSVG from "../../../../shared/images/create-white-18dp.svg"
 import "./PlayerInfo.scss"
+import styled, { keyframes } from "styled-components"
+import { PlayerBars, PlayersBars } from "./playerBars/PlayersBars"
+
+const playerStatBar = keyframes`
+0% {
+	width: 0;
+}
+100% {
+	width: ${(player) => player.stats[0]}%;
+}
+`
+
+const MyStylyedComp = styled.div`
+	width: ${(player) => player.stats}%;
+	animation: ${playerStatBar} 1.5s;
+	animation-delay: 0.1s;
+`
 
 export const PlayerInfo = ({ player, setEdit }) => {
 	const evaluateBeastRating = () => {
@@ -38,21 +55,22 @@ export const PlayerInfo = ({ player, setEdit }) => {
 				<h6>RATING</h6>
 				<div className="rating pace">
 					<h6>PACE</h6>
-					<div className="bar rating-pace">
-						<p>95%</p>
-					</div>
+					<MyStylyedComp stats={player.stats[0].pace} className="bar rating-pace">
+						{/* <p>{player.stats[0].pace}%</p> */}
+					</MyStylyedComp>
 				</div>
 				<div className="rating defending">
 					<h6>DEFENDING</h6>
-					<div className="bar rating-defending">
-						<p>90%</p>
-					</div>
+					<MyStylyedComp stats={player.stats[0].defense} className="bar rating-defending">
+						{/* <p>{player.stats[0].defense}%</p> */}
+					</MyStylyedComp>
 				</div>
 				<div className="rating passing">
 					<h6>PASSING</h6>
-					<div className="bar rating-passing" style={{ width: player.stats[0].passing + "%" }}>
-						<p>{player.stats[0].passing}%</p>
-					</div>
+					<MyStylyedComp stats={player.stats[0].passing} className="bar rating-passing">
+						{/* <p>{player.stats[0].passing}%</p> */}
+					</MyStylyedComp>
+					{/* <PlayersBars></PlayersBars> */}
 				</div>
 			</div>
 			<div className="iconContainer">

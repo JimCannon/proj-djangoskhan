@@ -1,5 +1,5 @@
-import { useContext, useState } from "react"
-import "./Navbar.css"
+import React, { useContext, useState } from "react"
+import "./Navbar.scss"
 import { useHistory } from "react-router-dom"
 import RoutingPath from "../../../routes/RoutingPath"
 import { UserContext } from "../../../shared/provider/UserProvider"
@@ -15,6 +15,7 @@ export const DesktopNavigation = () => {
 	const [authenticatedUser, setAuthenticatedUser] = authenticatedUserProvider
 	//set showmodal to false, preventing the popup
 	const [showModal, setShowModal] = useState(false)
+	const [navbar, setNavbar] = useState(false)
 
 	const signInModal = () => {
 		setShowModal(true)
@@ -36,8 +37,18 @@ export const DesktopNavigation = () => {
 		)
 	}
 
+	const changeNavBarBackground = () => {
+		if (window.scrollY >= 70) {
+			setNavbar(true)
+		} else {
+			setNavbar(false)
+		}
+	}
+
+	window.addEventListener("scroll", changeNavBarBackground)
+
 	return (
-		<nav className="navbar">
+		<nav className={navbar ? "navbar-active" : "navbar"}>
 			<div className="container">
 				<div className="left">
 					<div className="navbar-logo" onClick={() => history.push(RoutingPath.homeView)}>

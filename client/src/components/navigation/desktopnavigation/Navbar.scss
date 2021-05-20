@@ -1,8 +1,16 @@
 .navbar {
-	background-color: #ddd;
+	background-color: #ffd32a;
+	width: 100%;
 }
 
-.navbar .container {
+.navbar-active {
+	background-color: #202020b4;
+	width: 100%;
+	position: fixed;
+	color: #ffd32a;
+}
+
+.container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -15,7 +23,7 @@
 	transition: height 0.5s ease;
 }
 
-.navbar .container > div {
+.container > div {
 	display: flex;
 	align-items: center;
 }

@@ -38,8 +38,8 @@ export const ScheduleView = () => {
 			<button onClick={() => create()}>Create User</button>
 			<hr />
 			<h1>Display all users: </h1>
-			{users.map((x) => (
-				<div>
+			{users.map((x, index) => (
+				<div key={index}>
 					<span>{x.username}</span>
 				</div>
 			))}

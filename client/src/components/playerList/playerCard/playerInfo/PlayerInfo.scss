@@ -1,4 +1,4 @@
-$base-color: #e4cc18;
+$base-color: #ffd32a;
 $background-color: #202020;
 
 .name {
@@ -6,7 +6,7 @@ $background-color: #202020;
 	justify-content: center;
 	position: absolute;
 	margin: auto;
-	top: -90px;
+	top: -70px;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -76,7 +76,7 @@ $background-color: #202020;
 .ds-rating {
 	position: absolute;
 	margin: auto;
-	top: 220px;
+	top: 240px;
 	bottom: 10px;
 	right: 0;
 	left: 0;
@@ -115,48 +115,21 @@ $background-color: #202020;
 				background: white;
 			}
 		}
-		.rating-pace {
-			width: 95%;
-			animation: paceRating 1s;
-			animation-delay: 0.2s;
-		}
-		.rating-defending {
-			width: 90%;
-			animation: defendRating 1.5s;
-			animation-delay: 0.3s;
-		}
-		.rating-passing {
-			// width: 75%;
-			animation: passRating 1.5s;
-			animation-delay: 0.1s;
-		}
-	}
-}
-
-@keyframes paceRating {
-	0% {
-		width: 0;
-	}
-	100% {
-		width: 95%;
-	}
-}
-
-@keyframes defendRating {
-	0% {
-		width: 0;
-	}
-	100% {
-		width: 90%;
-	}
-}
-
-@keyframes passRating {
-	0% {
-		width: 0;
-	}
-	100% {
-		width: 75%;
+		// .rating-pace {
+		// 	width: 95%;
+		// 	animation: paceRating 1s;
+		// 	animation-delay: 0.2s;
+		// }
+		// .rating-defending {
+		// 	width: 90%;
+		// 	animation: defendRating 1.5s;
+		// 	animation-delay: 0.3s;
+		// }
+		// .rating-passing {
+		// 	width: 75%;
+		// 	animation: passRating 1.5s;
+		// 	animation-delay: 0.1s;
+		// }
 	}
 }
 
@@ -209,3 +182,30 @@ $background-color: #202020;
 .edit:hover {
 	background-color: #1b89fa;
 }
+
+// @keyframes paceRating {
+// 	0% {
+// 		width: 0;
+// 	}
+// 	100% {
+// 		width: 95%;
+// 	}
+// }
+
+// @keyframes defendRating {
+// 	0% {
+// 		width: 0;
+// 	}
+// 	100% {
+// 		width: 90%;
+// 	}
+// }
+
+// @keyframes passRating {
+// 	0% {
+// 		width: 0;
+// 	}
+// 	100% {
+// 		width: 75%;
+// 	}
+// }
