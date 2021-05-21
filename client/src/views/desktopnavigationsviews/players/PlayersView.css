@@ -1,3 +1,7 @@
+.playersBody {
+	padding-top: 70px;
+}
+
 .playersContainer {
 	display: flex;
 	flex-wrap: wrap;
@@ -13,7 +17,4 @@
 	margin: 10px;
 	border: solid;
 	cursor: pointer;
-}
-
-.playersBody {
 }

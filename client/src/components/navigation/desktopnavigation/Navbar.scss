@@ -1,13 +1,23 @@
+$base-color: #ffd32a;
+$background-color: #202020;
+
 .navbar {
 	background-color: #ffd32a;
 	width: 100%;
+	position: fixed;
+	animation-name: nav-fade-out;
+	animation-duration: 0.5s;
+	z-index: 3;
 }
 
 .navbar-active {
-	background-color: #202020b4;
+	background-color: $background-color;
 	width: 100%;
 	position: fixed;
-	color: #ffd32a;
+	color: $base-color;
+	animation-name: nav-fade-in;
+	animation-duration: 0.5s;
+	z-index: 3;
 }
 
 .container {
@@ -18,7 +28,6 @@
 	max-width: 1200px;
 	height: 70px;
 	margin: 0 auto;
-
 	border-bottom: 2px solid rgba(255, 255, 255, 0.05);
 	transition: height 0.5s ease;
 }
@@ -38,6 +47,24 @@
 .navbar-item {
 	padding: 10px 20px;
 	cursor: pointer;
+}
+
+@keyframes nav-fade-in {
+	from {
+		background-color: #ffd32a;
+	}
+	to {
+		background-color: #202020;
+	}
+}
+
+@keyframes nav-fade-out {
+	from {
+		background-color: #202020;
+	}
+	to {
+		background-color: #ffd32a;
+	}
 }
 
 /* .demo-content {
