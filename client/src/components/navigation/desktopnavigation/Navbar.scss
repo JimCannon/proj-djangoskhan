@@ -28,7 +28,6 @@ $background-color: #202020;
 	max-width: 1200px;
 	height: 70px;
 	margin: 0 auto;
-	border-bottom: 2px solid rgba(255, 255, 255, 0.05);
 	transition: height 0.5s ease;
 }
 
@@ -51,19 +50,23 @@ $background-color: #202020;
 
 @keyframes nav-fade-in {
 	from {
-		background-color: #ffd32a;
+		background-color: $base-color;
+		color: $background-color;
 	}
 	to {
-		background-color: #202020;
+		background-color: $background-color;
+		color: $base-color;
 	}
 }
 
 @keyframes nav-fade-out {
 	from {
-		background-color: #202020;
+		background-color: $background-color;
+		color: $base-color;
 	}
 	to {
-		background-color: #ffd32a;
+		background-color: $base-color;
+		color: $background-color;
 	}
 }
 

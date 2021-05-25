@@ -1,5 +1,5 @@
-import "./NewsCards.css";
+import "./NewsCards.css"
 
 export const NewsCards = () => {
-  return <div className="small-news-card">hej</div>;
-};
+	return <div className="small-news-card"></div>
+}

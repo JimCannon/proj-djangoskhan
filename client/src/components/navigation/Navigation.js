@@ -11,5 +11,5 @@ export const Navigation = () => {
 		return width <= 1000 ? <MobileNavigation /> : <DesktopNavigation />
 	}
 
-	return <div className="hej">{displayNavigationDependingOnDevice()}</div>
+	return <div className="">{displayNavigationDependingOnDevice()}</div>
 }

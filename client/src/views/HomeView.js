@@ -11,7 +11,7 @@ export const HomeView = () => {
 			</div>
 			<div className="news-content">
 				<div className="news-container-center">
-					<h1 className="news-title">SENASTE NYTT</h1>
+					<h1 className="news-title">NEWS</h1>
 					<div className="news-cards-wrapper">
 						<div className="big-news-cards"></div>
 						<div className="small-news-cards">
