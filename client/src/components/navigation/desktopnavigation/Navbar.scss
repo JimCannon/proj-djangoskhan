@@ -2,12 +2,13 @@ $base-color: #ffd32a;
 $background-color: #202020;
 
 .navbar {
-	background-color: #ffd32a;
+	background-color: #ffd42a00;
 	width: 100%;
 	position: fixed;
 	animation-name: nav-fade-out;
 	animation-duration: 0.5s;
 	z-index: 3;
+	color: white;
 }
 
 .navbar-active {

@@ -1,7 +1,13 @@
 .home-container {
-	padding-top: 70px;
 	.hero-container {
+		background-image: url(https://www.wallpapertip.com/wmimgs/171-1718333_black-and-white-football-backgrounds.jpg);
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: center;
+		padding-top: 70px;
 		img {
+			display: block;
+			transform: rotate(180deg);
 			width: 100%;
 		}
 	}

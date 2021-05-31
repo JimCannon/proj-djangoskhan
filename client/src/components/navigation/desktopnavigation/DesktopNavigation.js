@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import "./Navbar.scss"
 import { useHistory } from "react-router-dom"
 import RoutingPath from "../../../routes/RoutingPath"
@@ -10,12 +10,15 @@ import { SignInView } from "../../../views/SignInView"
 export const DesktopNavigation = () => {
 	const history = useHistory()
 	// eslint-disable-next-line
-	const { authenticatedUserProvider } = useContext(UserContext)
+	const { authenticatedUserProvider, navbarClassNameProvider } = useContext(UserContext)
 	// eslint-disable-next-line
 	const [authenticatedUser, setAuthenticatedUser] = authenticatedUserProvider
+	const [navbarClassName, setNavbarClassName] = navbarClassNameProvider
 	//set showmodal to false, preventing the popup
 	const [showModal, setShowModal] = useState(false)
 	const [navbar, setNavbar] = useState(false)
+	const [test, setTest] = useState("")
+	const [loading, setLoading] = useState(false)
 
 	const signInModal = () => {
 		setShowModal(true)
@@ -47,20 +50,44 @@ export const DesktopNavigation = () => {
 
 	window.addEventListener("scroll", changeNavBarBackground)
 
+	const navbarTransparentOnHomeView = () => {
+		setLoading(true)
+		if (history.location.pathname === RoutingPath.homeView) {
+			setTest(history.location.pathname + " HOME")
+			// console.log(test)
+		} else if (history.location.pathname !== RoutingPath.homeView) {
+			setTest(history.location.pathname + " NOT HOME")
+			// console.log(test)
+		}
+		setLoading(false)
+	}
+
+	const navigatePath = (path) => {
+		history.push(path)
+		navbarTransparentOnHomeView()
+		console.log(test)
+		// console.log(history.location.pathname)
+	}
+
+	useEffect(() => {
+		navbarTransparentOnHomeView()
+		console.log(test)
+	}, [loading])
+
 	return (
-		<nav className={navbar ? "navbar-active" : "navbar"}>
+		<nav className={navbar ? `navbar-active ${navbarClassName}` : `navbar ${navbarClassName}`}>
 			<div className="container">
 				<div className="left">
-					<div className="navbar-logo" onClick={() => history.push(RoutingPath.homeView)}>
+					<div className="navbar-logo" onClick={() => navigatePath(RoutingPath.homeView)}>
 						Djangos Khan
 					</div>
-					<div className="navbar-item" onClick={() => history.push(RoutingPath.playersView)}>
+					<div className="navbar-item" onClick={() => navigatePath(RoutingPath.playersView)}>
 						Players
 					</div>
-					<div className="navbar-item" onClick={() => history.push(RoutingPath.scheduleView)}>
+					<div className="navbar-item" onClick={() => navigatePath(RoutingPath.scheduleView)}>
 						Schedule
 					</div>
-					<div className="navbar-item" onClick={() => history.push(RoutingPath.aboutUsView)}>
+					<div className="navbar-item" onClick={() => navigatePath(RoutingPath.aboutUsView)}>
 						About us
 					</div>
 				</div>
