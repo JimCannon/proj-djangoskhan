@@ -17,8 +17,7 @@ export const DesktopNavigation = () => {
 	//set showmodal to false, preventing the popup
 	const [showModal, setShowModal] = useState(false)
 	const [navbar, setNavbar] = useState(false)
-	const [test, setTest] = useState("")
-	const [loading, setLoading] = useState(false)
+	const [test, setTest] = useState('')
 
 	const signInModal = () => {
 		setShowModal(true)
@@ -50,32 +49,25 @@ export const DesktopNavigation = () => {
 
 	window.addEventListener("scroll", changeNavBarBackground)
 
-	const navbarTransparentOnHomeView = () => {
-		setLoading(true)
-		if (history.location.pathname === RoutingPath.homeView) {
-			setTest(history.location.pathname + " HOME")
-			// console.log(test)
-		} else if (history.location.pathname !== RoutingPath.homeView) {
-			setTest(history.location.pathname + " NOT HOME")
-			// console.log(test)
+	const navbarTransparentOnHomeView = path => {
+		if (path === RoutingPath.homeView) {
+			setTest('home')
+		} else if (path !== RoutingPath.homeView) {
+			setTest('not-home')
 		}
-		setLoading(false)
 	}
 
-	const navigatePath = (path) => {
+	const navigatePath = path => {
 		history.push(path)
-		navbarTransparentOnHomeView()
-		console.log(test)
-		// console.log(history.location.pathname)
+		navbarTransparentOnHomeView(path)
 	}
 
 	useEffect(() => {
-		navbarTransparentOnHomeView()
-		console.log(test)
-	}, [loading])
+    navbarTransparentOnHomeView(history.location.pathname)
+	}, [])
 
 	return (
-		<nav className={navbar ? `navbar-active ${navbarClassName}` : `navbar ${navbarClassName}`}>
+		<nav className={navbar ? `navbar-active ${test}` : `navbar ${test}`}>
 			<div className="container">
 				<div className="left">
 					<div className="navbar-logo" onClick={() => navigatePath(RoutingPath.homeView)}>

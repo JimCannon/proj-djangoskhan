@@ -5,8 +5,8 @@ $background-color: #202020;
 	background-color: #ffd42a00;
 	width: 100%;
 	position: fixed;
-	animation-name: nav-fade-out;
-	animation-duration: 0.5s;
+	// animation-name: nav-fade-out;
+	// animation-duration: 0.5s;
 	z-index: 3;
 	color: white;
 }
@@ -16,8 +16,8 @@ $background-color: #202020;
 	width: 100%;
 	position: fixed;
 	color: $base-color;
-	animation-name: nav-fade-in;
-	animation-duration: 0.5s;
+	// animation-name: nav-fade-in;
+	// animation-duration: 0.5s;
 	z-index: 3;
 }
 
