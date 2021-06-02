@@ -10,14 +10,14 @@ import { SignInView } from "../../../views/SignInView"
 export const DesktopNavigation = () => {
 	const history = useHistory()
 	// eslint-disable-next-line
-	const { authenticatedUserProvider, navbarClassNameProvider } = useContext(UserContext)
+	const { authenticatedUserProvider } = useContext(UserContext)
 	// eslint-disable-next-line
 	const [authenticatedUser, setAuthenticatedUser] = authenticatedUserProvider
-	const [navbarClassName, setNavbarClassName] = navbarClassNameProvider
 	//set showmodal to false, preventing the popup
 	const [showModal, setShowModal] = useState(false)
 	const [navbar, setNavbar] = useState(false)
-	const [test, setTest] = useState('')
+	const [test, setTest] = useState("")
+	const [navbarAnimations, setNavbarAnimations] = useState("")
 
 	const signInModal = () => {
 		setShowModal(true)
@@ -42,6 +42,7 @@ export const DesktopNavigation = () => {
 	const changeNavBarBackground = () => {
 		if (window.scrollY >= 70) {
 			setNavbar(true)
+			setNavbarAnimations("animate")
 		} else {
 			setNavbar(false)
 		}
@@ -49,25 +50,29 @@ export const DesktopNavigation = () => {
 
 	window.addEventListener("scroll", changeNavBarBackground)
 
-	const navbarTransparentOnHomeView = path => {
+	const navbarTransparentOnHomeView = (path) => {
 		if (path === RoutingPath.homeView) {
-			setTest('home')
+			setTest("home")
 		} else if (path !== RoutingPath.homeView) {
-			setTest('not-home')
+			setTest("not-home")
 		}
 	}
 
-	const navigatePath = path => {
+	const navigatePath = (path) => {
 		history.push(path)
 		navbarTransparentOnHomeView(path)
 	}
 
 	useEffect(() => {
-    navbarTransparentOnHomeView(history.location.pathname)
+		navbarTransparentOnHomeView(history.location.pathname)
 	}, [])
 
 	return (
-		<nav className={navbar ? `navbar-active ${test}` : `navbar ${test}`}>
+		<nav
+			className={
+				navbar ? `navbar-active ${test} ${navbarAnimations}` : `navbar ${test} ${navbarAnimations}`
+			}
+		>
 			<div className="container">
 				<div className="left">
 					<div className="navbar-logo" onClick={() => navigatePath(RoutingPath.homeView)}>
